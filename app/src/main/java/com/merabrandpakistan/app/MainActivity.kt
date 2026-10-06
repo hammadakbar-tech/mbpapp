@@ -105,13 +105,14 @@ class MainActivity : AppCompatActivity() {
         webView.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
                 val uri = request.url
-                return when (uri.scheme) {
-                    // Web pages stay in the app. This also keeps payment-gateway redirects working.
-                    "http", "https" -> false
-                    else -> {
-                        openExternally(uri)
-                        true
-                    }
+                // Embedded frames (maps, videos) load normally.
+                if (!request.isForMainFrame && (uri.scheme == "http" || uri.scheme == "https")) return false
+                return if (isSiteUrl(uri)) {
+                    false
+                } else {
+                    // Other websites and non-web links (tel:, mailto:, whatsapp:) open outside the app.
+                    openExternally(uri)
+                    true
                 }
             }
 
@@ -194,7 +195,15 @@ class MainActivity : AppCompatActivity() {
         return caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
     }
 
-    /** tel:, mailto:, whatsapp:, intent: and other non-web links open in the matching app. */
+    /** True for https pages on the site's own host (including www and other subdomains). */
+    private fun isSiteUrl(uri: Uri): Boolean {
+        if (uri.scheme != "https" && uri.scheme != "http") return false
+        val host = uri.host?.lowercase() ?: return false
+        val site = Uri.parse(BuildConfig.START_URL).host!!.removePrefix("www.")
+        return host == site || host.endsWith(".$site")
+    }
+
+    /** Other websites, tel:, mailto:, whatsapp: and similar links open in the matching app or browser. */
     private fun openExternally(uri: Uri) {
         try {
             startActivity(Intent(Intent.ACTION_VIEW, uri))

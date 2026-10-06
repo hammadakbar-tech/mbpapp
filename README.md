@@ -7,7 +7,7 @@ A native Android (Kotlin) shell around [merabrandpakistan.com](https://merabrand
 - Full website in a WebView (JavaScript, cookies and logins persist)
 - Pull-to-refresh, loading progress bar, back-button navigation
 - Offline screen with a "Try again" button
-- `tel:`, `mailto:`, WhatsApp and other non-web links open in the right app
+- External websites, `tel:`, `mailto:`, WhatsApp and social links open in the right app
 - File uploads and downloads
 - `https://merabrandpakistan.com/...` links open in the app
 - HTTPS only (cleartext traffic and mixed content are blocked)
@@ -38,6 +38,7 @@ Create a signing key, configure `signingConfigs` for the `release` build type, t
 `./gradlew bundleRelease` to get an `.aab` for upload. Never commit the keystore.
 
 ## Notes
-All `http(s)` navigation stays inside the WebView so that payment-gateway redirects
-(JazzCash, Easypaisa, card 3-D Secure, etc.) return to the app. If you would rather open
-other domains in the browser, change `shouldOverrideUrlLoading` in `MainActivity.kt`.
+Pages on merabrandpakistan.com (and `www.` / other subdomains) open inside the app. Links to other
+websites and non-web links (`tel:`, `mailto:`, WhatsApp, social media) open in the browser or the
+matching app. The site has no online payments, so no payment-gateway redirects need to stay in the
+WebView. To change this, edit `shouldOverrideUrlLoading` and `isSiteUrl` in `MainActivity.kt`.
