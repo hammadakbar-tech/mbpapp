@@ -1,7 +1,4 @@
 <resources>
     <color name="brand_primary">#01411C</color>
-    <color name="brand_primary_dark">#002E14</color>
-    <color name="brand_on_primary">#FFFFFF</color>
     <color name="window_background">#FFFFFF</color>
-    <color name="text_secondary">#5F6368</color>
 </resources>

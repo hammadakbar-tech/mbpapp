@@ -1,13 +1,9 @@
 <resources>
-    <style name="Theme.App" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/brand_primary</item>
-        <item name="colorPrimaryDark">@color/brand_primary_dark</item>
-        <item name="colorOnPrimary">@color/brand_on_primary</item>
-        <item name="android:statusBarColor">@color/brand_primary_dark</item>
+    <style name="Theme.App" parent="Theme.Material3.Light.NoActionBar">
         <item name="android:windowBackground">@color/window_background</item>
     </style>
 
-    <!-- Splash screen shown on launch; switches to Theme.App in MainActivity -->
+    <!-- Splash screen shown on launch; switches to Theme.App afterwards -->
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/window_background</item>
         <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_foreground</item>

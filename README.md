@@ -1,44 +1,53 @@
-# Mera Brand Pakistan – Android app
+# Mera Brand Pakistan – Exhibition app (Android)
 
-A native Android (Kotlin) shell around [merabrandpakistan.com](https://merabrandpakistan.com).
+Native Android app (Kotlin + Jetpack Compose) for the Mera Brand Pakistan exhibition.
 
-## Features
-- Splash screen and brand-colored status bar
-- Full website in a WebView (JavaScript, cookies and logins persist)
-- Pull-to-refresh, loading progress bar, back-button navigation
-- Offline screen with a "Try again" button
-- External websites, `tel:`, `mailto:`, WhatsApp and social links open in the right app
-- File uploads and downloads
-- `https://merabrandpakistan.com/...` links open in the app
-- HTTPS only (cleartext traffic and mixed content are blocked)
+## What it does
+**Welcome screen** → choose how to sign in.
+
+**Exhibitors** (no sign-up – accounts are created by the organisers)
+- Log in with Exhibitor ID + PIN
+- Dashboard: pending / accepted / declined counts and upcoming meetings
+- Meeting requests: accept or decline visitor requests
+- View their product list and profile (hall + booth)
+
+**Visitors** (register or log in)
+- Browse and search exhibitors and products
+- See each exhibitor's hall and booth, and browse by hall
+- Request a meeting (pick a time slot, add a message) and track its status
+
+## Demo mode
+The app currently runs on **sample data** stored on the device, so it works without a server:
+- Exhibitor login: `EXH001` … `EXH008`, PIN `1234`
+- Visitors can register any email and password (stored locally on the phone)
+- Meeting requests are shared between visitor and exhibitor accounts **on the same phone only**
+
+## Connecting your real server
+All data goes through the `EventRepository` interface (`data/EventRepository.kt`).
+`DemoRepository` is the demo implementation. To go live, write a second implementation that calls
+your API (exhibitor login, visitor register/login, exhibitors, products, halls, meeting requests)
+and replace `DemoRepository(...)` in `EventViewModel.kt`. The screens don't need to change.
+Remove the "Demo mode" hint in `ui/AuthScreens.kt` at the same time.
 
 ## Build
-Requires JDK 17 and the Android SDK (or just Android Studio).
+Requires JDK 17 and the Android SDK (or Android Studio).
 
 ```sh
 ./gradlew assembleDebug      # APK in app/build/outputs/apk/debug/
 ```
 
-Or open the folder in Android Studio and press Run. The GitHub Actions workflow
-(`.github/workflows/android.yml`) also builds the debug APK on every push.
+GitHub Actions (`.github/workflows/android.yml`) builds the APK on every push and publishes it
+under **Releases → latest-debug** as `MeraBrandPakistan.apk`.
 
 ## Customising
 | What | Where |
 |---|---|
-| Site URL | `START_URL` in `app/build.gradle.kts` (and the hosts in `AndroidManifest.xml`) |
-| Brand colors | `app/src/main/res/values/colors.xml` |
-| App name | `app/src/main/res/values/strings.xml` |
+| Brand colors | `ui/theme/Theme.kt` and `res/values/colors.xml` |
 | Logo / launcher icon | `res/mipmap-*/ic_launcher_foreground.png`, `res/drawable-nodpi/logo.png` |
+| Sample exhibitors, products, halls, time slots | `data/DemoData.kt` |
+| App name | `res/values/strings.xml` |
 | Package name | `applicationId` / `namespace` in `app/build.gradle.kts` |
-
-The WebView appends `MBPApp/<version>` to the user agent, so the site can detect the app.
 
 ## Releasing to Google Play
 Create a signing key, configure `signingConfigs` for the `release` build type, then run
 `./gradlew bundleRelease` to get an `.aab` for upload. Never commit the keystore.
-
-## Notes
-Pages on merabrandpakistan.com (and `www.` / other subdomains) open inside the app. Links to other
-websites and non-web links (`tel:`, `mailto:`, WhatsApp, social media) open in the browser or the
-matching app. The site has no online payments, so no payment-gateway redirects need to stay in the
-WebView. To change this, edit `shouldOverrideUrlLoading` and `isSiteUrl` in `MainActivity.kt`.

@@ -1,9 +1,3 @@
 <resources>
     <string name="app_name">Mera Brand Pakistan</string>
-    <string name="offline_title">You\'re offline</string>
-    <string name="offline_message">Please check your internet connection and try again.</string>
-    <string name="retry">Try again</string>
-    <string name="cannot_open_link">No app found to open this link</string>
-    <string name="file_chooser_title">Choose a file</string>
-    <string name="download_started">Downloading…</string>
 </resources>
