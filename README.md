@@ -28,7 +28,7 @@ Or open the folder in Android Studio and press Run. The GitHub Actions workflow
 | Site URL | `START_URL` in `app/build.gradle.kts` (and the hosts in `AndroidManifest.xml`) |
 | Brand colors | `app/src/main/res/values/colors.xml` |
 | App name | `app/src/main/res/values/strings.xml` |
-| Logo / launcher icon | `res/drawable/ic_launcher_foreground.xml` (currently a placeholder "M") |
+| Logo / launcher icon | `res/mipmap-*/ic_launcher_foreground.png`, `res/drawable-nodpi/logo.png` |
 | Package name | `applicationId` / `namespace` in `app/build.gradle.kts` |
 
 The WebView appends `MBPApp/<version>` to the user agent, so the site can detect the app.
