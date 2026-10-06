@@ -1,0 +1,13 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Placeholder "M" mark. Replace with the real logo. -->
+    <path
+        android:pathData="M34,72 L34,36 L54,58 L74,36 L74,72"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="7"
+        android:strokeLineJoin="miter"
+        android:fillColor="#00000000" />
+</vector>
