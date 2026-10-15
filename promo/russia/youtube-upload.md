@@ -1,5 +1,7 @@
 # The Entire History of Russia, Part 01 (upload kit)
 
+Upload `russia-part01-v2.mp4`: it has the cold-open hook and word-synced text.
+
 ## Title (pick one)
 1. The Entire History of Russia | Part 1: From Vikings to the Mongols 🇷🇺
 2. How Russia Began: Vikings, Kyiv & the Mongol Yoke (Part 1)
@@ -12,12 +14,12 @@ Russia is the largest country on Earth, but 1,200 years ago it didn't exist at a
 Part 1 of the Entire History of Russia: from Viking traders on the rivers, to the rise of Kyiv, the Mongol invasion and the rise of Moscow (862–1480).
 
 ⏱️ Chapters
-0:00 The largest country on Earth
-0:14 Chapter I: Rivers and Raiders (Rurik, 862)
-0:40 Chapter II: The Rise of Kyiv (Oleg, Vladimir, Yaroslav)
-1:17 Chapter III: The Storm from the East (the Mongols, 1237–1242)
-1:50 Chapter IV: The Rise of Moscow (Kulikovo, the Ugra River, 1480)
-2:17 Coming in Part 2…
+0:00 Vikings, Mongols and Moscow
+0:16 Chapter I: Rivers and Raiders (Rurik, 862)
+0:42 Chapter II: The Rise of Kyiv (Oleg, Vladimir, Yaroslav)
+1:19 Chapter III: The Storm from the East (the Mongols, 1237–1242)
+1:52 Chapter IV: The Rise of Moscow (Kulikovo, the Ugra River, 1480)
+2:19 Coming in Part 2…
 
 📜 Sources: the Primary Chronicle (Tale of Bygone Years), Britannica, Janet Martin's "Medieval Russia, 980–1584". Early dates such as Rurik's 862 come from the chronicles and are partly legendary. Map borders are approximate.
 
@@ -43,8 +45,8 @@ Which part of Russia's history should I cover in depth next? 👇
 ## Settings
 - **Category:** Education
 - **Audience:** Not made for kids
-- **Format:** vertical and 2:31 long, so it posts as a **Short** (YouTube allows up to 3 minutes). Chapters only show on regular uploads, not Shorts.
-- **Covers:** `cover-shorts.png` is the title frame (choose about 0:13 in the Shorts editor). `thumbnail-youtube.png` (1280×720) is for a regular upload.
+- **Format:** vertical and 2:33 long, so it posts as a **Short** (YouTube allows up to 3 minutes). Chapters only show on regular uploads, not Shorts.
+- **Covers:** `cover-shorts.png` is the title frame (choose about 0:15 in the Shorts editor). `thumbnail-youtube.png` (1280×720) is for a regular upload.
 - **Playlist:** start a "History of Russia" playlist now so Parts 2, 3… line up.
 
 ## Facebook / Reels caption
