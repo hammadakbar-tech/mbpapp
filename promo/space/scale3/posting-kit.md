@@ -3,6 +3,7 @@
 | File | Use |
 |---|---|
 | `scale-of-the-universe-part3.mp4` | **Post this one.** 1:07, 9:16, AI voice (en-US Ava), word-synced text, original score |
+| `scale-of-the-universe-part3-share.mp4` | Smaller preview copy for sending to your phone |
 | `cover-shorts.png` | 9:16 cover / thumbnail frame ("HOW SMALL ARE WE?") |
 | `scale3.py`, `scale3_cover.py` | Source used to render the video and cover |
 
