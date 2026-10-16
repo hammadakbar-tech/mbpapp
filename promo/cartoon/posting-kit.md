@@ -2,7 +2,7 @@
 
 | File | Use |
 |---|---|
-| `canada-vs-usa-countryballs.mp4` | **Post this one.** About 1:02, 9:16 cartoon. Two AI voices (Canada: en-CA Liam, USA: en-US Guy), lip-synced mouths, karaoke speech bubbles, a live scoreboard |
+| `canada-vs-usa-countryballs.mp4` | **Post this one.** About 1:00, 9:16 cartoon. Two AI voices (Canada: en-CA Liam, USA: en-US Guy), lip-synced mouths, karaoke speech bubbles, a live scoreboard |
 | `cover-shorts.png` | 9:16 cover / thumbnail frame ("CANADA vs USA: WHO WINS?") |
 | `balls.py`, `balls_cover.py`, `cartoon.py` | Source: the episode, its cover, and the reusable cartoon character kit |
 | `style-board.png` | Style sheet showing the other cartoon formats the kit can do (talking planets, astronaut explainers) |
