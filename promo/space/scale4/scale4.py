@@ -699,7 +699,7 @@ def draw_end(cr, t):
     if t >= tq:
         k = pop_k(t, tq) * (1 + 0.03 * math.sin(t * 5))
         cr.save(); cr.translate(540, 1345); cr.scale(k, k)
-        ptext(cr, 'WHICH BLEW YOUR MIND?', 0, 0, fit(cr, 'WHICH BLEW YOUR MIND?', 76, 960), WHITE, 1, sw=9); cr.restore()
+        ptext(cr, 'WHICH BLEW YOUR MIND?', 0, 0, fit(cr, 'WHICH BLEW YOUR MIND?', 76, 860), WHITE, 1, sw=9); cr.restore()
     for word, x, txt, e, col in (('out', 290, 'ZOOM OUT', '🌌', CYAN), ('in', 790, 'ZOOM IN', '🔬', VIOLET)):
         tp = w('cta', word)
         if t >= tp: pill(cr, x, 1480, txt, e, col, pop_k(t, tp) * (1 + 0.03 * math.sin(t * 6 + x)), 46)
