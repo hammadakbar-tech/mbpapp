@@ -80,6 +80,7 @@ def move(r, src, dst):  # true-size move on the sphere, keeping north up at the 
     v2 = (v @ c1)[:, None] * c2 + (v @ e1)[:, None] * e2 + (v @ n1)[:, None] * n2
     return np.degrees(np.arctan2(v2[:, 1], v2[:, 0])), np.degrees(np.arcsin(np.clip(v2[:, 2], -1, 1)))
 
+def crimea(r): return 32.4 < r[:, 0].mean() < 36.7 and 44.3 < r[:, 1].mean() < 46.3  # shown in Ukraine's internationally recognised borders
 def inbox(r): return -40 < r[:, 0].mean() < 75 and 22 < r[:, 1].mean() < 84
 def overlaps(r): return r[:, 0].min() < 75 and r[:, 0].max() > -40 and r[:, 1].max() > 22 and r[:, 1].min() < 84
 
@@ -98,8 +99,9 @@ class Geo:
             keep = [r for r in rs if (inbox(r) or a3 == 'RUS') and len(r) > 3]
             if not keep: continue
             code = DEPEND.get(a3, a3)
-            self.c.setdefault(code, []).extend(P(r) for r in keep)
-            self.ll.setdefault(code, []).extend(keep)
+            for r in keep:
+                cc = 'UKR' if (a3 == 'RUS' and crimea(r)) else code
+                self.c.setdefault(cc, []).append(P(r)); self.ll.setdefault(cc, []).append(r)
             if a3 == code: self.label[code] = (p['LABEL_X'], p['LABEL_Y']); self.mapc[code] = p['MAPCOLOR9']
         self.label['RUS'] = (40.0, 56.0); self.label['NOR'] = (9.0, 61.0); self.label['SWE'] = (15.5, 62.0); self.label['ITA'] = (12.6, 42.8)
         src, dst = (-98.6, 39.8), (14.0, 51.5)

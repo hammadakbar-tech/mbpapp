@@ -83,4 +83,5 @@ Change the flag to your own country. Flags in the comments are the engagement yo
 - **The 1990s:** the Soviet Union dissolved in December 1991 into 15 countries. Yugoslavia broke apart from 1991, with Montenegro independent in 2006 and Kosovo declaring independence in 2008. Czechoslovakia also split peacefully in 1993 (not covered in the video).
 - **San Marino:** by tradition it was founded on 3 September 301, which makes it the world's oldest surviving republic by its own account. The video says "says", as this is a founding tradition.
 - **Vatican City and Central Park:** the Vatican is about 0.44–0.49 km² and Central Park about 3.41 km², roughly 7 times bigger. The comparison is by area.
+- **Crimea:** shown as part of Ukraine, its internationally recognised border (UN General Assembly Resolution 68/262). Russia has occupied and claimed it since 2014.
 - **Maps:** modern borders come from Natural Earth. The 1914, 1920, AD 100 and AD 800 maps come from the open *historical-basemaps* dataset (approximate historical borders). Mountain ranges are drawn as simplified lines.
