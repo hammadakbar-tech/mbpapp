@@ -1,0 +1,22 @@
+"""Canadian census metropolitan / agglomeration populations (2021 census, thousands) and locations."""
+CITIES = [
+    ('Toronto', 6202, 43.65, -79.38), ('Montreal', 4292, 45.50, -73.57), ('Vancouver', 2643, 49.28, -123.12),
+    ('Ottawa', 1488, 45.42, -75.70), ('Calgary', 1481, 51.05, -114.07), ('Edmonton', 1418, 53.55, -113.49),
+    ('Quebec City', 839, 46.81, -71.21), ('Winnipeg', 834, 49.90, -97.14), ('Hamilton', 785, 43.26, -79.87),
+    ('Kitchener', 575, 43.45, -80.49), ('London', 543, 42.98, -81.25), ('Halifax', 465, 44.65, -63.57),
+    ('St. Catharines', 433, 43.16, -79.24), ('Windsor', 422, 42.31, -83.04), ('Oshawa', 415, 43.90, -78.86),
+    ('Victoria', 397, 48.43, -123.37), ('Saskatoon', 317, 52.13, -106.67), ('Regina', 249, 50.45, -104.61),
+    ('Sherbrooke', 227, 45.40, -71.89), ('Kelowna', 222, 49.89, -119.50), ('St. John\'s', 213, 47.56, -52.71),
+    ('Barrie', 212, 44.39, -79.69), ('Abbotsford', 195, 49.05, -122.33), ('Kingston', 172, 44.23, -76.49),
+    ('Sudbury', 170, 46.49, -80.99), ('Guelph', 165, 43.55, -80.25), ('Saguenay', 161, 48.43, -71.07),
+    ('Trois-Rivieres', 161, 46.35, -72.55), ('Moncton', 157, 46.09, -64.77), ('Brantford', 144, 43.14, -80.26),
+    ('Saint John', 130, 45.27, -66.06), ('Peterborough', 128, 44.30, -78.32), ('Thunder Bay', 123, 48.38, -89.25),
+    ('Lethbridge', 123, 49.69, -112.84), ('Nanaimo', 115, 49.17, -123.94), ('Kamloops', 114, 50.67, -120.33),
+    ('Chilliwack', 113, 49.16, -121.95), ('Belleville', 112, 44.16, -77.38), ('Fredericton', 108, 45.96, -66.64),
+    ('Chatham-Kent', 104, 42.40, -82.19), ('Red Deer', 100, 52.27, -113.81), ('St-Jean-sur-Richelieu', 100, 45.31, -73.26),
+    ('Drummondville', 100, 45.88, -72.48), ('Prince George', 89, 53.92, -122.75), ('Charlottetown', 79, 46.24, -63.13),
+    ('Medicine Hat', 77, 50.04, -110.68), ('Sault Ste. Marie', 73, 46.52, -84.33), ('Wood Buffalo', 72, 56.73, -111.38),
+    ('North Bay', 72, 46.31, -79.46), ('Grande Prairie', 70, 55.17, -118.80), ('Rimouski', 55, 48.45, -68.52),
+    ('Brandon', 51, 49.85, -99.95), ('Timmins', 41, 48.48, -81.33), ('Prince Albert', 37, 53.20, -105.75),
+    ('Whitehorse', 28, 60.72, -135.06), ('Yellowknife', 20, 62.45, -114.37), ('Iqaluit', 7, 63.75, -68.52),
+]
