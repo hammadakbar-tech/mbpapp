@@ -139,6 +139,7 @@ def build(voice):
     t, beats, clips = 0.05, [], []
     lead = {'h1': 0.0, 'h2': 0.05, 'h3': 0.05, 'h4': 0.05, 'title': 0.1}
     tail = {'h1': 0.12, 'h2': 0.12, 'h3': 0.15, 'h4': 0.2, 'title': 1.3, 'cta': 2.4, 'moon': 0.5, 'puyi': 0.5}
+    tail.update(TAIL_OVERRIDE)
     for key, text, year, yword, cam, chap, card in BEATS:
         b = dict(key=key, text=text, year=year, yword=yword, cam=cam, chap=chap, card=card[:3] if card else None,
                  cword=card[3] if card else None, start=t)
@@ -153,6 +154,7 @@ def build(voice):
 
 TL = None
 G = None
+TAIL_OVERRIDE = {}  # other videos reusing this engine can lengthen pauses
 _missing = set()
 def bt(key): return TL['by'][key]
 def w(key, word, n=0, end=False):
