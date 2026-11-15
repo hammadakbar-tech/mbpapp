@@ -22,7 +22,7 @@
 | 1:49 | Ending | 4–4 draw. Nigeria: "We used to fit together." Brazil: "Like a puzzle. Come here, brother!" The continents slide back together. |
 | 1:57 | CTA | "South America, or Africa? Comment your side." |
 
-The balls speak in 28 of the 32 lines after the hook; the announcer only reads the round cards.
+The balls speak 20 of the 33 lines. The announcer only does the hook, the round cards and the result.
 
 ## TikTok
 
