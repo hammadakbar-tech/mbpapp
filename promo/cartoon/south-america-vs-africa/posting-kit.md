@@ -1,28 +1,29 @@
 # Countryballs: South America vs Africa, the Geography War
 
-**File:** `south-america-vs-africa.mp4` (1080×1920, 2:05, AI voices, captions burned in)
+**File:** `south-america-vs-africa.mp4` (1080×1920, 2:09, AI voices, captions burned in)
 **Cover:** `cover.png`
 
 ## How it plays
 
 | Time | Beat | What happens |
 |---|---|---|
-| 0:00 | Hook | The two continents sit fitted together: "140 million years ago, South America and Africa were one piece of land." |
-| 0:05 | Split | The land cracks apart with a camera shake. "…and they have been arguing ever since." |
-| 0:08 | First insults | Brazil: "I kept the rainforest!" Nigeria: "I kept everything else!" |
-| 0:12 | Title | Both armies (12 vs 54 countryballs) face off |
-| 0:15 | Round 1: Countries | Nigeria: "Fifty-four. Count them!" Brazil: "Twelve. Quality over quantity!" → **Africa** |
-| 0:24 | Round 2: Highest peak | Tanzania's Kilimanjaro (5,895 m) vs Argentina's Aconcagua (6,961 m): "Topped." → **South America** |
-| 0:38 | Round 3: People | 440 million vs 1.5 billion. Nigeria: "I alone have more than half of your whole continent!" → **Africa** |
-| 0:51 | Round 4: Mightiest river | Nile (the longest) vs Amazon (more water than the next seven rivers combined) → **South America** |
-| 1:02 | Round 5: Deserts | Chile's Atacama (driest) vs Kenya: "The Sahara alone is bigger than Brazil!" → **Africa** |
-| 1:11 | Round 6: Football | Morocco's semi-final vs Brazil 5 + Argentina 3 + Uruguay 2: "Ten… to zero." → **South America** |
-| 1:24 | Round 7: Size | 17.8 vs 30.4 million km². "You would fit inside me, with room for the whole United States!" → **Africa** |
-| 1:37 | Final round: GDP war | Africa $2.8 trillion vs Brazil alone $2.2 trillion, South America over $4 trillion → **South America** |
-| 1:49 | Ending | 4–4 draw. Nigeria: "We used to fit together." Brazil: "Like a puzzle. Come here, brother!" The continents slide back together. |
-| 1:57 | CTA | "South America, or Africa? Comment your side." |
+| 0:00 | Hook (question) | Brazil and Nigeria crash into each other in the first half second: "South America, or Africa: which continent would win a war?" |
+| 0:04 | Plot twist | "140 million years ago, they were one piece of land." The two continents sit fitted together. |
+| 0:08 | Split | The land cracks apart with a camera shake. "…and they never stopped arguing." |
+| 0:11 | First insults | Brazil: "I kept the rainforest!" Nigeria: "I kept everything else!" |
+| 0:14 | Title | Both armies (12 vs 54 countryballs) face off |
+| 0:20 | Round 1: Countries | Nigeria: "Fifty-four. Count them!" Brazil: "Twelve. Quality over quantity!" → **Africa** |
+| 0:29 | Round 2: Highest peak | Tanzania's Kilimanjaro (5,895 m) vs Argentina's Aconcagua (6,961 m): "Topped." → **South America** |
+| 0:43 | Round 3: People | 440 million vs 1.5 billion. Nigeria: "I alone have more than half of your whole continent!" → **Africa** |
+| 0:56 | Round 4: Mightiest river | Nile (the longest) vs Amazon (more water than the next seven rivers combined) → **South America** |
+| 1:07 | Round 5: Deserts | Chile's Atacama (driest) vs Kenya: "The Sahara alone is bigger than Brazil!" → **Africa** |
+| 1:16 | Round 6: Football | Morocco's semi-final vs Brazil 5 + Argentina 3 + Uruguay 2: "Ten… to zero." → **South America** |
+| 1:29 | Round 7: Size | 17.8 vs 30.4 million km². "You would fit inside me, with room for the whole United States!" → **Africa** |
+| 1:41 | Final round: GDP war | Africa $2.8 trillion vs Brazil alone $2.2 trillion, South America over $4 trillion → **South America** |
+| 1:54 | Ending | 4–4 draw. Nigeria: "We used to fit together." Brazil: "Like a puzzle. Come here, brother!" The continents slide back together. |
+| 2:02 | CTA | "South America, or Africa? Comment your side." |
 
-The balls speak 20 of the 33 lines. The announcer only does the hook, the round cards and the result.
+The balls speak 20 of the 34 lines. The announcer only does the hook, the round cards and the result.
 
 ## TikTok
 
@@ -45,18 +46,19 @@ Final score: 4–4 🤝 Which round was unfair? Next battle: Asia vs Europe or A
 3. Brazil vs Nigeria and 64 More Countryballs: Geography War
 
 **Description**
-140 million years ago South America and Africa were one piece of land. Then they split, and they have been arguing ever since. Eight rounds, 66 countryballs, one scoreboard.
+South America or Africa: which continent would win a war? Plot twist: 140 million years ago they were one piece of land. Eight rounds, 66 countryballs, one scoreboard.
 
-0:00 One piece of land
-0:15 Round 1: Countries
-0:24 Round 2: Highest peak
-0:38 Round 3: People
-0:51 Round 4: Mightiest river
-1:02 Round 5: Deserts
-1:11 Round 6: Football
-1:24 Round 7: Size
-1:37 Final round: The GDP war
-1:49 The result
+0:00 Who would win?
+0:04 Plot twist: one piece of land
+0:20 Round 1: Countries
+0:29 Round 2: Highest peak
+0:43 Round 3: People
+0:56 Round 4: Mightiest river
+1:07 Round 5: Deserts
+1:16 Round 6: Football
+1:29 Round 7: Size
+1:41 Final round: The GDP war
+1:54 The result
 
 Figures are rounded. Sources: UN population estimates, IMF nominal GDP, FIFA, Natural Earth map data.
 Voices are AI generated.

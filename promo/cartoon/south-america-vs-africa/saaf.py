@@ -23,10 +23,11 @@ SA = ['Brazil', 'Argentina', 'Colombia', 'Peru', 'Venezuela', 'Chile', 'Ecuador'
 SA_CODE = dict(zip(SA, 'br ar co pe ve cl ec bo py uy gy sr'.split()))
 # key, speaker (None = announcer), line
 LINES = [
-    ('h1', None, "A hundred and forty million years ago, South America and Africa were one piece of land."),
-    ('h2', None, "Then they split apart... and they have been arguing ever since."),
+    ('h1', None, "South America, or Africa: which continent would win a war?"),
+    ('h2', None, "Plot twist: a hundred and forty million years ago, they were one piece of land."),
+    ('h2s', None, "Then they split... and they never stopped arguing."),
     ('h3b', 'Brazil', "I kept the rainforest!"), ('h3n', 'Nigeria', "I kept everything else!"),
-    ('title', None, "South America versus Africa: the geography war."),
+    ('title', None, "Eight rounds. One winner. This is the geography war."),
     ('c1', None, "Round one: countries."),
     ('r1a', 'Nigeria', "Africa has fifty-four countries. Count them!"), ('r1b', 'Brazil', "We have twelve. Quality over quantity!"),
     ('c2', None, "Round two: the highest peak."),
@@ -56,10 +57,10 @@ SPK = {k: s for k, s, _ in LINES}
 # round: title, winner, (beat, word) where the point is scored
 RD = {1: ('COUNTRIES', 'AF', ('r1b', 'twelve')), 2: ('HIGHEST PEAK', 'SA', ('r2b', 'Topped')), 3: ('PEOPLE', 'AF', ('r3b', 'continent')), 4: ('MIGHTIEST RIVER', 'SA', ('r4b', 'combined')),
       5: ('DESERTS', 'AF', ('r5b', 'Brazil')), 6: ('FOOTBALL', 'SA', ('r6b', 'zero')), 7: ('SIZE', 'AF', ('r7b', 'inside')), 8: ('THE GDP WAR', 'SA', ('r8b', 'four'))}
-C.BEATS = [(k, s, None, None, None, None, None) for k, _, s in LINES]; C.HOOK = ('h1', 'h2')
+C.BEATS = [(k, s, None, None, None, None, None) for k, _, s in LINES]; C.HOOK = ('h1', 'h2', 'h2s')
 C.SAY = {None: {}}
 C.HOT = ('south', 'america', 'africa', 'split', 'arguing', 'war', 'draw', 'comment', 'battle', 'million', 'land', 'geography')
-C.TAIL_OVERRIDE = {'h1': 0.3, 'h2': 0.3, 'title': 0.6, 'end': 0.5, 'e2': 1.0, 'cta': 2.4, **{f'c{i}': 0.15 for i in range(1, 9)},
+C.TAIL_OVERRIDE = {'h1': 0.25, 'h2': 0.2, 'h2s': 0.3, 'title': 0.6, 'end': 0.5, 'e2': 1.0, 'cta': 2.4, **{f'c{i}': 0.15 for i in range(1, 9)},
                    **{k: 0.3 for k, s, _ in LINES if s}, **{RD[i][2][0]: 0.9 for i in RD}, 'h3b': 0.2, 'h3n': 0.4}
 bt, w = C.bt, C.w
 VOICE_OF = {C.say(k, s): ((VOICE[sp], '+4%') if sp else NARR) for k, sp, s in LINES}
@@ -312,19 +313,42 @@ def ocean(cr, t):
 
 def draw_hook(cr, t):
     if t >= bt('h3b')['start']: return False
-    b1, b2 = bt('h1'), bt('h2'); ts = w('h2', 'split') - 0.15
-    k = 1 - ease_io(prog(t, ts, ts + 2.0)); sx, sy = shake(t, ts, 24, 0.7)
-    cr.save(); cam(cr, push(t, 0, b2['end'], 1.12, 1.0), -0.03 + 0.05 * (1 - k), 540 + sx, 960 + sy); ocean(cr, t)
+    b1, b2, b3 = bt('h1'), bt('h2'), bt('h2s')
+    if t < b2['start']:
+        # the question: two captains crash into each other in the very first frames
+        ti = 0.3; e = ease_out(prog(t, 0, ti)); sx, sy = shake(t, ti, 30, 0.6)
+        cr.save(); cam(cr, push(t, 0, b2['start'], 1.0, 1.16), 0.05 * math.sin(t * 1.3), 540 + sx, 1000 + sy); arena(cr, t)
+        rec = 26 * math.sin(math.pi * clamp((t - ti) / 0.35)) if t > ti else 0
+        for n, x0, x1, sg, ph in (('Brazil', 20, 318, -1, 0), ('Nigeria', 1060, 762, 1, 1.3)):
+            ball(cr, n, lerp(x0, x1, e) + sg * rec, 1040 - abs(math.sin(t * 8 + ph)) * 22 * (t > ti + 0.3), 215, 'angry', 0.12 * (rec / 26), -sg * 0.8)
+        if t >= ti: emoji(cr, '⚡', 540, 1010, 210 * pop_k(t, ti, 0.25), 1, rot=0.2 * math.sin(t * 14))
+        cr.restore()
+        g = cairo.LinearGradient(0, 0, 0, 760); g.add_color_stop_rgba(0, 0, 0, 0.05, 0.8); g.add_color_stop_rgba(1, 0, 0, 0.05, 0); cr.rectangle(0, 0, W, 760); cr.set_source(g); cr.fill()
+        slam(cr, 'SOUTH AMERICA', 540, 300, 118, SA_C, t, -0.3); ta = w('h1', 'Africa') - 0.15
+        if t >= w('h1', 'or') - 0.1: ptext(cr, 'OR', 540, 420, 70, WHITE, pop_k(t, w('h1', 'or') - 0.1), sw=9)
+        slam(cr, 'AFRICA?', 540, 610, 210, AF_C, t, ta, rot=0.03)
+        tq = w('h1', 'which') - 0.1
+        if t >= tq: qx, qy = shake(t, tq, 14); cr.save(); cr.translate(qx, qy); slam(cr, 'WHO WOULD WIN?', 540, 1500, 124, GOLD, t, tq); cr.restore()
+        f = 1 - prog(t, ti, ti + 0.15)
+        if ti <= t and f > 0: cr.set_source_rgba(1, 1, 1, 0.75 * f); cr.paint()
+        return True
+    ts = w('h2s', 'split') - 0.15
+    k = 1 - ease_io(prog(t, ts, ts + 1.6)); sx, sy = shake(t, ts, 24, 0.7)
+    cr.save(); cam(cr, push(t, b2['start'], b3['end'], 1.14, 1.0), -0.03 + 0.05 * (1 - k), 540 + sx, 960 + sy); ocean(cr, t)
     pb, pn = joined(cr, t, k, lerp(0.071, 0.1, k))
-    ta = w('h2', 'arguing') - 0.3
+    ta = w('h2s', 'arguing') - 0.3
     if t >= ta:
         ball(cr, 'Brazil', pb[0], pb[1] - abs(math.sin(t * 9)) * 16, 105 * pop_k(t, ta, 0.3), 'angry', 0, 0.8); ball(cr, 'Nigeria', pn[0], pn[1] - abs(math.sin(t * 9 + 1)) * 16, 105 * pop_k(t, ta + 0.1, 0.3), 'angry', 0, -0.8)
         emoji(cr, '⚡', (pb[0] + pn[0]) / 2, (pb[1] + pn[1]) / 2, 150 * pop_k(t, ta + 0.2, 0.3), 1, rot=0.2 * math.sin(t * 12))
     cr.restore()
     g = cairo.LinearGradient(0, 0, 0, 620); g.add_color_stop_rgba(0, 0, 0, 0.05, 0.85); g.add_color_stop_rgba(1, 0, 0, 0.05, 0); cr.rectangle(0, 0, W, 620); cr.set_source(g); cr.fill()
     if t < ts:
-        slam(cr, '140 MILLION', 540, 260, 140, GOLD, t, 0.03); slam(cr, 'YEARS AGO', 540, 380, 92, WHITE, t, w('h1', 'years') - 0.2)
-        if t >= w('h1', 'one') - 0.2: chip(cr, 'ONE PIECE OF LAND', 540, 1560, 60, WHITE, INK, pop_k(t, w('h1', 'one') - 0.2), 1)
+        ty = w('h2', 'hundred') - 0.15
+        if t < ty: slam(cr, 'PLOT TWIST', 540, 320, 150, CRIMSON, t, b2['start'])
+        else:
+            slam(cr, '140 MILLION', 540, 260, 140, GOLD, t, ty); slam(cr, 'YEARS AGO', 540, 380, 92, WHITE, t, w('h2', 'years') - 0.2)
+        if t >= w('h2', 'one') - 0.2: chip(cr, 'ONE PIECE OF LAND', 540, 1560, 60, WHITE, INK, pop_k(t, w('h2', 'one') - 0.2), 1)
+        streaks(cr, 1 - ease_out(prog(t, b2['start'], b2['start'] + 0.2)))
     else:
         slam(cr, 'THEN THEY SPLIT', 540, 290, 112, WHITE, t, ts)
         if t >= ta: slam(cr, '…AND NEVER STOPPED ARGUING', 540, 1560, 62, GOLD, t, ta)
@@ -346,10 +370,10 @@ def draw_title(cr, t):
     cr.save(); cam(cr, push(t, b['start'], b['end'], 1.0, 1.1), 0.03, 540, 1000); arena(cr, t); e = ease_out(prog(t, b['start'], b['start'] + 0.6))
     army(cr, t, SA, 'angry', e, hop=10); army(cr, t, AF, 'angry', e, hop=10); cr.restore()
     cr.set_source_rgba(0, 0, 0.03, 0.5); cr.paint()
-    slam(cr, 'SOUTH AMERICA', 540, 560, 112, SA_C, t, w('title', 'South'))
-    tv = w('title', 'versus')
+    slam(cr, 'SOUTH AMERICA', 540, 560, 112, SA_C, t, w('title', 'Eight'))
+    tv = w('title', 'One')
     if t >= tv: k = pop_k(t, tv, 0.3); cr.save(); cr.translate(540, 760); cr.scale(k, k); cr.new_path(); cr.arc(0, 0, 110, 0, 2 * math.pi); cr.set_source_rgb(*GOLD[:3]); cr.fill(); ptext(cr, 'VS', 0, 42, 120, INK, 1, sw=0, shadow=False); cr.restore()
-    slam(cr, 'AFRICA', 540, 1000, 200, AF_C, t, w('title', 'Africa'))
+    slam(cr, 'AFRICA', 540, 1000, 200, AF_C, t, w('title', 'winner'))
     tg = w('title', 'geography')
     if t >= tg: sx, sy = shake(t, tg, 14); cr.save(); cr.translate(sx, sy); slam(cr, 'THE GEOGRAPHY WAR', 540, 1240, 92, WHITE, t, tg); cr.restore()
     streaks(cr, 1 - ease_out(prog(t, b['start'], b['start'] + 0.22)))
