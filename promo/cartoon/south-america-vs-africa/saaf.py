@@ -2,7 +2,9 @@
 argue through eight rounds. The countryballs do the talking (Brazil and Nigeria as captains, with cameos); the announcer only
 calls the rounds. All 66 countries appear as flag balls. Usage: python3 saaf.py <data_dir> <out.mp4> [--preview t1,...]
 """
-import json, math, os, subprocess, sys, wave
+import json, math, os, ssl, subprocess, sys, wave
+import edge_tts.communicate as _etc
+if os.path.exists('/root/.ccr/ca-bundle.crt'): _etc._SSL_CTX = ssl.create_default_context(cafile='/root/.ccr/ca-bundle.crt')
 from multiprocessing import Pool
 import numpy as np
 import cairo
@@ -520,9 +522,10 @@ def make_audio(T, path):
         z = np.convolve(rng.standard_normal(int(d * SR)), np.ones(8) / 8, 'same'); L_ = np.linspace(0, 1, len(z)); put(fx, t0, amp * z * np.sin(np.pi * L_) ** 0.6)
     def rumble(t0, d=2.0, amp=0.3):
         z = np.convolve(rng.standard_normal(int(d * SR)), np.ones(300) / 300, 'same') * 8; put(fx, t0, amp * z * np.sin(np.pi * np.linspace(0, 1, len(z))))
-    boom(0.03, 0.8); ts = w('h2', 'split') - 0.15; boom(ts, 1.0); rumble(ts, 2.2); boom(w('h2', 'arguing') - 0.3, 0.6)
-    for k in ('h3b', 'h3n', 'title'): whoosh(bt(k)['start'] - 0.35)
-    for wd in ('South', 'Africa', 'geography'): boom(w('title', wd), 0.7)
+    boom(0.3, 0.9); boom(w('h1', 'Africa') - 0.15, 0.7); boom(w('h1', 'which') - 0.1, 0.7); boom(w('h2', 'Plot') - 0.1, 0.7)
+    ts = w('h2s', 'split') - 0.15; boom(ts, 1.0); rumble(ts, 2.2); boom(w('h2s', 'arguing') - 0.3, 0.6)
+    for k in ('h2', 'h3b', 'h3n', 'title'): whoosh(bt(k)['start'] - 0.35)
+    for wd in ('Eight', 'winner', 'geography'): boom(w('title', wd), 0.7)
     horn(w('title', 'geography'), 0.09)
     for i in RD:
         b = bt(f'c{i}'); whoosh(b['start'] - 0.35); boom(b['start'] + 0.03, 0.7); bell(b['start'] + 0.03)
