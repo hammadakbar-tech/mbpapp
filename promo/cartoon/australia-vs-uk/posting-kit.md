@@ -1,6 +1,6 @@
 # Countryballs: Australia vs the UK, the Geography War
 
-**File:** `australia-vs-uk.mp4` (1080×1920, 2:12, AI voices)
+**File:** `australia-vs-uk.mp4` (1080×1920, 2:08, AI voices)
 **Cover:** `cover.png`
 
 Same multi-shot editing as the last episodes, with cutaways to whatever is being talked about and a reaction shot after each round. The UK talks in front of grey London: rain, a clock tower, rooftops and a red phone box. Kept as friendly banter: cricket, weather, football, tea. The history round celebrates the oldest living culture rather than going anywhere near colonial history.
@@ -9,25 +9,25 @@ Same multi-shot editing as the last episodes, with cutaways to whatever is being
 
 | Time | Beat | What happens / what the camera shows |
 |---|---|---|
-| 0:00 | Hook | "Australia, or the UK: who would win?" The balls crash together |
-| 0:02 | Hook 2 | The UK drops onto Australia at true size, "31× BIGGER". Cut to the UK glowing with people, "2.5× THE PEOPLE" |
-| 0:08 | Trash talk | Australia (low angle): "This'll be a walk on the beach, mate!" UK (over the shoulder): "Right then. Let's have a proper go." |
-| 0:20 | Round 1: Size | "Small but packed with history" vs 31× bigger → **Australia** |
-| 0:29 | Round 2: People | Australia's coastal cities (28M). Then UK cities light up and London pulses: 69.5M, London ≈ 9M → **UK** |
-| 0:40 | Round 3: Sunshine | Rain clouds drift over Britain ("lovely weather… sometimes"). Then the bars: Perth ~3,200 hours vs London ~1,600 → **Australia** |
-| 0:52 | Round 4: Football | 7 Socceroos World Cups (1974–2026). Then "England actually won one", with a trophy and "1966" → **UK** |
-| 1:03 | Round 5: Cricket | "We invented cricket!" (zoom on England, cricket bat). Then 6 Australian Cricket World Cup trophies vs England's 1 → **Australia** |
-| 1:12 | Round 6: Trains | The 478 km Nullarbor straight. Then tube lines draw across London: "1863, the world's first underground" (plus the 1825 steam railway) → **UK** |
-| 1:23 | Round 7: History | Zoom to Stonehenge (~5,000 years). Then dot-art circles over Australia and a timeline bar: 65,000+ years, the oldest living culture → **Australia** |
-| 1:36 | Round 8: GDP | $2T vs $4.25T → **UK** |
-| 1:46 | Tiebreaker: the big move | 4–4. "Loads of Aussies live in London!" (kangaroos around London, ~150K). Then UK-born dots fill Australia's cities: 1.1M+, "SUNSHINE WINS" → **Australia, 5–4** |
-| 1:58 | Ending | UK: "Fair enough. Fancy a cup of tea?" Australia: "Only if it's a flat white, mate!" |
-| 2:04 | CTA | "Australia, or the UK? Comment your side." |
+| 0:00 | Cold open | UK close-up in the rain, under a brolly: "Oi, Australia! You're just a big empty beach!" |
+| 0:03 | Comeback | Whip to Australia, low angle in the sunset: "And you're just a big grey cloud, mate!" |
+| 0:06 | The twist | UK shapes stamp onto Australia one by one, ×1… ×31: "The UK fits inside Australia thirty-one times." Then the screen slams "SIZE ISN'T EVERYTHING" |
+| 0:17 | Round 1: Size | "Small but packed with history" vs 31× bigger → **Australia** |
+| 0:26 | Round 2: People | Australia's coastal cities (28M). Then UK cities light up and London pulses: 69.5M, London ≈ 9M → **UK** |
+| 0:37 | Round 3: Sunshine | Rain clouds drift over Britain ("lovely weather… sometimes"). Then the bars: Perth ~3,200 hours vs London ~1,600 → **Australia** |
+| 0:49 | Round 4: Football | 7 Socceroos World Cups (1974–2026). Then "England actually won one", with a trophy and "1966" → **UK** |
+| 1:00 | Round 5: Cricket | "We invented cricket!" (zoom on England, cricket bat). Then 6 Australian Cricket World Cup trophies vs England's 1 → **Australia** |
+| 1:08 | Round 6: Trains | The 478 km Nullarbor straight. Then tube lines draw across London: "1863, the world's first underground" (plus the 1825 steam railway) → **UK** |
+| 1:20 | Round 7: History | Zoom to Stonehenge (~5,000 years). Then dot-art circles over Australia and a timeline bar: 65,000+ years, the oldest living culture → **Australia** |
+| 1:33 | Round 8: GDP | $2T vs $4.25T → **UK** |
+| 1:42 | Tiebreaker: the big move | 4–4. "Loads of Aussies live in London!" (kangaroos around London, ~150K). Then UK-born dots fill Australia's cities: 1.1M+, "SUNSHINE WINS" → **Australia, 5–4** |
+| 1:55 | Ending | UK: "Fair enough. Fancy a cup of tea?" Australia: "Only if it's a flat white, mate!" |
+| 2:01 | CTA | "Australia, or the UK? Comment your side." |
 
 ## TikTok
 
 **Caption**
-Australia 🇦🇺 vs the UK 🇬🇧: 31× bigger, 2× sunnier… but England DID win a World Cup ⚽ The tiebreaker is brutal ☀️ Whose side are you on? 👇
+"You're just a big empty beach!" 🏖️ vs "You're just a big grey cloud!" ☁️ The UK fits in Australia 31 times… but size isn't everything 🇦🇺🇬🇧 Whose side are you on? 👇
 
 **Hashtags**
 #countryballs #australia #uk #england #geography #australiavsuk #cricket #theashes #maps #funfacts
@@ -43,18 +43,18 @@ Over a MILLION Brits moved to Australia ☀️ Would you swap rain for sunshine?
 3. Cricket, Rain and 1966: Australia vs UK Countryballs
 
 **Description**
-Australia or the UK: who would win? Australia is 31 times bigger, but the UK has more than twice the people. Eight rounds and a tiebreaker about where people actually want to live.
+"Oi, Australia! You're just a big empty beach!" "And you're just a big grey cloud, mate!" The UK fits inside Australia 31 times, but size isn't everything. Eight rounds and a tiebreaker about where people actually want to live.
 
-0:00 Who would win?
-0:20 Round 1: Size
-0:29 Round 2: People
-0:40 Round 3: Sunshine
-0:52 Round 4: Football
-1:03 Round 5: Cricket
-1:12 Round 6: Trains
-1:23 Round 7: History
-1:36 Round 8: GDP
-1:46 Tiebreaker: The big move
+0:00 "You're just a big empty beach!"
+0:17 Round 1: Size
+0:26 Round 2: People
+0:37 Round 3: Sunshine
+0:49 Round 4: Football
+1:00 Round 5: Cricket
+1:08 Round 6: Trains
+1:20 Round 7: History
+1:33 Round 8: GDP
+1:42 Tiebreaker: The big move
 
 Sources: ABS, ONS (mid-2025), Department of Home Affairs (UK-born residents of Australia), Bureau of Meteorology, Met Office, FIFA / Football Australia, ICC, Transport for London history, English Heritage, IMF World Economic Outlook. Voices are AI generated.
 

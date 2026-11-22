@@ -22,9 +22,9 @@ AU_C, UK_C = A_C, U_C
 NARR = ('en-US-GuyNeural', '+6%')
 VOICE = {'Australia': ('en-AU-WilliamNeural', '+4%'), 'UK': ('en-GB-RyanNeural', '+4%')}
 LINES = [
-    ('h1', None, "Australia, or the UK: who would win?"),
-    ('h2', None, "Australia is thirty-one times bigger. But the UK has more than twice the people."),
-    ('h3c', 'Australia', "G'day! This'll be a walk on the beach, mate!"), ('h3j', 'UK', "Right then. Let's have a proper go."),
+    ('h1', 'UK', "Oi, Australia! You're just a big empty beach!"),
+    ('h2', 'Australia', "And you're just a big grey cloud, mate!"),
+    ('h3', None, "The UK fits inside Australia thirty-one times. But size isn't everything."),
     ('title', None, "Eight rounds. One winner. This is the geography war."),
     ('c1', None, "Round one: size."),
     ('r1a', 'UK', "I may be small, but I'm packed with history!"),
@@ -71,11 +71,11 @@ SHOTS = {
     'r7a': [(None, 'two'), ('Stonehenge', 'map:stonehenge')], 'r7b': [(None, 'ots'), ('Aboriginal', 'map:culture')],
     'r8a': [(None, 'close'), ('two', 'map:gdpau')], 'r8b': [(None, 'two'), ('four', 'map:gdpuk')],
     'r9a': [(None, 'close'), ('Aussies', 'map:ukmove')], 'r9b': [(None, 'low'), ('million', 'map:move')]}
-C.BEATS = [(k, s, None, None, None, None, None) for k, _, s in LINES]; C.HOOK = ('h1', 'h2')
+C.BEATS = [(k, s, None, None, None, None, None) for k, _, s in LINES]; C.HOOK = ('h1', 'h2', 'h3')
 C.SAY = {None: {}}
 C.HOT = ('australia', 'uk', 'win', 'bigger', 'people', 'war', 'tiebreaker', 'move', 'comment', 'geography', 'winner', 'twice')
-C.TAIL_OVERRIDE = {'h1': 0.25, 'h2': 0.5, 'title': 0.6, 'c9': 0.3, 'e2': 0.6, 'cta': 2.4, **{f'c{i}': 0.15 for i in range(1, 9)},
-                   **{k: 0.3 for k, s, _ in LINES if s}, **{RD[i][2][0]: 1.1 for i in RD}, 'h3c': 0.2, 'h3j': 0.4}
+C.TAIL_OVERRIDE = {'h1': 0.12, 'h2': 0.2, 'h3': 0.45, 'title': 0.6, 'c9': 0.3, 'e2': 0.6, 'cta': 2.4, **{f'c{i}': 0.15 for i in range(1, 9)},
+                   **{k: 0.3 for k, s, _ in LINES if s}, **{RD[i][2][0]: 1.1 for i in RD}, 'h1': 0.12, 'h2': 0.2}
 bt, w = C.bt, C.w
 VOICE_OF = {C.say(k, s): (VOICE[sp] if sp else NARR) for k, sp, s in LINES}
 class MultiVoice(C.WordVoice):
@@ -227,15 +227,15 @@ def set_uk(cr, t, zoom=1.0):
 def set_of(name, cr, t): (set_australia if name == 'Australia' else set_uk)(cr, t)
 
 # ---------- shots ----------
-def sh_close(cr, t, b, name, t0, t1):
+def sh_close(cr, t, b, name, t0, t1, mood='happy'):
     sgn = -1 if name == 'Australia' else 1; h = hop_of(t, b)
     cr.save(); cam(cr, push(t, t0, t1, 1.0, 1.12), 0.07 * sgn * (1 if sum(map(ord, b['key'])) % 2 else -1), 540, 1100); set_of(name, cr, t)
-    ball(cr, name, 540, 1230 - h * 46, 330, 'happy', 0.05 * h, -sgn * 0.4); cr.restore()
+    ball(cr, name, 540, 1230 - h * 46, 330, mood, 0.05 * h, -sgn * 0.4); cr.restore()
     bubble(cr, t, b, 540, 540); nametag(cr, name, 540, 1640, col_of(name))
-def sh_low(cr, t, b, name, t0, t1):
+def sh_low(cr, t, b, name, t0, t1, mood='happy'):
     sgn = -1 if name == 'Australia' else 1; h = hop_of(t, b)
     cr.save(); cam(cr, push(t, t0, t1, 1.15, 1.02), 0.0, 540, 760); cr.translate(0, 300); set_of(name, cr, t); cr.restore()
-    cr.save(); cr.translate(540, 1500 - h * 30); cr.scale(1.0, 1.08); ball(cr, name, 0, 0, 470, 'happy', 0.04 * h, -sgn * 0.2); cr.restore()
+    cr.save(); cr.translate(540, 1500 - h * 30); cr.scale(1.0, 1.08); ball(cr, name, 0, 0, 470, mood, 0.04 * h, -sgn * 0.2); cr.restore()
     bubble(cr, t, b, 540, 520); nametag(cr, name, 540, 1830, col_of(name))
 def sh_ots(cr, t, b, name, t0, t1):
     sgn = -1 if name == 'Australia' else 1; h = hop_of(t, b); rv = rival_of(name)
@@ -461,44 +461,47 @@ SCENE = {'size': sc_size, 'aupop': sc_aupop, 'ukpop': sc_ukpop, 'rain': sc_rain,
          'gdpau': sc_gdpau, 'gdpuk': sc_gdpuk, 'ukmove': sc_ukmove, 'move': sc_move}
 
 # ---------- hook, close-ups, title ----------
+UK_TILES = None
+def uk_tiles():
+    global UK_TILES
+    if UK_TILES is None:
+        pts = []
+        for jj, y in enumerate(np.arange(-2000, 2000, 560)):
+            for x in np.arange(-2200 + (jj % 2) * 210, 2200, 420):
+                if inside(np.array([x, y]), G.c['AU']): pts.append((x, y))
+        rng = np.random.default_rng(31); order = rng.permutation(len(pts))[:31]; UK_TILES = [pts[k] for k in order]
+    return UK_TILES
 def draw_hook(cr, t):
-    if t >= bt('h3c')['start']: return False
-    b1, b2 = bt('h1'), bt('h2')
+    """Cold open: the two balls trade insults, then 31 UKs stamp onto Australia."""
+    if t >= bt('title')['start']: return False
+    b1, b2, b3 = bt('h1'), bt('h2'), bt('h3')
     if t < b2['start']:
-        ti = 0.3; e = ease_out(prog(t, 0, ti)); sx, sy = shake(t, ti, 30, 0.6)
-        cr.save(); cam(cr, push(t, 0, b2['start'], 1.0, 1.16), 0.05 * math.sin(t * 1.3), 540 + sx, 1000 + sy); arena(cr, t)
-        rec = 26 * math.sin(math.pi * clamp((t - ti) / 0.35)) if t > ti else 0
-        for n, x0, x1, sg, ph in (('Australia', 20, 318, -1, 0), ('UK', 1060, 762, 1, 1.3)):
-            ball(cr, n, lerp(x0, x1, e) + sg * rec, 1040 - abs(math.sin(t * 8 + ph)) * 22 * (t > ti + 0.3), 215, 'angry', 0.12 * (rec / 26), -sg * 0.8)
-        if t >= ti: emoji(cr, '⚡', 540, 1010, 210 * pop_k(t, ti, 0.25), 1, rot=0.2 * math.sin(t * 14))
-        cr.restore()
-        g = cairo.LinearGradient(0, 0, 0, 760); g.add_color_stop_rgba(0, 0, 0, 0.05, 0.8); g.add_color_stop_rgba(1, 0, 0, 0.05, 0); cr.rectangle(0, 0, W, 760); cr.set_source(g); cr.fill()
-        slam(cr, 'AUSTRALIA', 540, 300, 170, AU_C, t, -0.3)
-        if t >= w('h1', 'or') - 0.1: ptext(cr, 'OR', 540, 420, 70, WHITE, pop_k(t, w('h1', 'or') - 0.1), sw=9)
-        slam(cr, 'THE UK?', 540, 600, 180, UK_C, t, w('h1', 'UK') - 0.15, rot=0.03)
-        tq = w('h1', 'who') - 0.1
-        if t >= tq: qx, qy = shake(t, tq, 14); cr.save(); cr.translate(qx, qy); slam(cr, 'WHO WOULD WIN?', 540, 1500, 124, GOLD, t, tq); cr.restore()
-        f = 1 - prog(t, ti, ti + 0.15)
-        if ti <= t and f > 0: cr.set_source_rgba(1, 1, 1, 0.75 * f); cr.paint()
+        sh_close(cr, t, b1, 'UK', 0, b1['end'], 'angry'); emoji(cr, '☂️', 880, 820, 150, 1, rot=-0.2 + 0.05 * math.sin(t * 3))
         return True
-    tp = w('h2', 'But') - 0.15
-    if t < tp:
-        cx, cy, s = mview(cr, t, 'AU', (0, 0), (0, -100), 0.19, 0.22, b2['start'], tp, AU_LAND)
-        tj = w('h2', 'thirty') - 0.2; k = ease_out(prog(t, tj, tj + 0.4))
-        if t >= tj: cr.save(); cr.translate(0, (1 - k) * -900); km_shape(cr, G.uk_true, cx, cy, s, UK_LAND, 1, 300, 300, fill=0.95, lw=3, edge=INK); cr.restore()
-        endmap(cr)
-        g = cairo.LinearGradient(0, 0, 0, 600); g.add_color_stop_rgba(0, 0, 0, 0.05, 0.9); g.add_color_stop_rgba(1, 0, 0, 0.05, 0); cr.rectangle(0, 0, W, 600); cr.set_source(g); cr.fill()
-        slam(cr, '31× BIGGER', 540, 330, 150, AU_C, t, tj + 0.2)
-    else:
-        cx, cy, s = mview(cr, t, 'UK', (0, 0), (0, -50), 1.0, 0.85, tp, b2['end'], UK_LAND)
-        rng = np.random.default_rng(9); kk = ease_out(prog(t, tp, tp + 1.0))
-        for j in range(int(700 * kk)):
-            lon, lat = rng.uniform(-8, 2), rng.uniform(50, 59); p = G.p('UK', lon, lat)
-            if inside(p, G.c['UK']): x, y = kpt('UK', lon, lat, cx, cy, s); cr.new_path(); cr.arc(x, y, 3.5, 0, 2 * math.pi); cr.set_source_rgba(1, 0.85, 0.3, 0.9); cr.fill()
-        endmap(cr)
-        g = cairo.LinearGradient(0, 0, 0, 600); g.add_color_stop_rgba(0, 0, 0, 0.05, 0.9); g.add_color_stop_rgba(1, 0, 0, 0.05, 0); cr.rectangle(0, 0, W, 600); cr.set_source(g); cr.fill()
-        slam(cr, '2.5× THE PEOPLE', 540, 330, 120, UK_C, t, w('h2', 'twice') - 0.1)
-    streaks(cr, 1 - ease_out(prog(t, b2['start'], b2['start'] + 0.22)))
+    if t < b3['start']:
+        sx, sy = shake(t, w('h2', 'cloud') - 0.05, 20, 0.4); cr.save(); cr.translate(sx, sy)
+        sh_low(cr, t, b2, 'Australia', b2['start'], b2['end'], 'angry'); cr.restore()
+        emoji(cr, '😎', 860, 820, 130 * pop_k(t, b2['l0'], 0.3), 1)
+        streaks(cr, 1 - ease_out(prog(t, b2['start'], b2['start'] + 0.2)))
+        return True
+    cx, cy, s = mview(cr, t, 'AU', (0, -100), (0, 0), 0.2, 0.19, b3['start'], b3['end'], AU_LAND)
+    t0 = w('h3', 'fits') - 0.1; t1 = w('h3', 'thirty', end=True) + 0.2; n = int(clamp(prog(t, t0, t1)) * 31) if t >= t0 else 0
+    tiles = uk_tiles()
+    for k_, (x, y) in enumerate(tiles[:n]):
+        tk = t0 + (k_ + 1) / 31 * (t1 - t0); kk = ease_out(prog(t, tk - 0.08, tk + 0.12)); sc = lerp(1.8, 1.0, kk)
+        cr.save(); px, py = cx + x * s, cy - y * s; cr.translate(px, py); cr.scale(sc, sc); cr.translate(-px, -py)
+        km_shape(cr, G.uk_true, cx, cy, s, UK_LAND, 1, x, y, fill=0.92, lw=2, edge=INK); cr.restore()
+    endmap(cr)
+    g = cairo.LinearGradient(0, 0, 0, 600); g.add_color_stop_rgba(0, 0, 0, 0.05, 0.9); g.add_color_stop_rgba(1, 0, 0, 0.05, 0); cr.rectangle(0, 0, W, 600); cr.set_source(g); cr.fill()
+    if n: sx, sy = shake(t, t0 + n / 31 * (t1 - t0), 6, 0.12); cr.save(); cr.translate(sx, sy); ptext(cr, f'×{n}', 540, 360, 190, UK_C, 1, sw=18); cr.restore()
+    ts = w('h3', 'size') - 0.1
+    if t >= ts:
+        cr.set_source_rgba(0, 0, 0.05, 0.45 * clamp((t - ts) * 4)); cr.paint()
+        sx, sy = shake(t, ts, 18); cr.save(); cr.translate(sx, sy); slam(cr, "SIZE ISN'T", 540, 860, 150, WHITE, t, ts); slam(cr, 'EVERYTHING', 540, 1030, 150, GOLD, t, w('h3', 'everything') - 0.1); cr.restore()
+    C.draw_captions(cr, t, 1700)
+    f = 1 - prog(t, b3['start'], b3['start'] + 0.15)
+    if f > 0: cr.set_source_rgba(1, 1, 1, 0.6 * f); cr.paint()
+    streaks(cr, 1 - ease_out(prog(t, b3['start'], b3['start'] + 0.2)))
     return True
 def close_up(cr, t, key):
     b = bt(key); name = SPK[key]
@@ -592,7 +595,7 @@ def draw_end(cr, t):
 
 def render_frame(cr, t):
     b = next((x for x in C.TL['beats'] if x['start'] <= t < x['end']), C.TL['beats'][-1]); key = b['key']
-    if draw_hook(cr, t): C.draw_captions(cr, t, 1700); return
+    if draw_hook(cr, t): return
     if key in ('h3c', 'h3j'): close_up(cr, t, key); return
     if key == 'title': draw_title(cr, t); return
     if key in ('e1', 'e2', 'cta'): draw_end(cr, t); hud(cr, t)
@@ -637,9 +640,11 @@ def make_audio(T, path):
         z = np.convolve(rng.standard_normal(int(d * SR)), np.ones(8) / 8, 'same'); L_ = np.linspace(0, 1, len(z)); put(fx, t0, amp * z * np.sin(np.pi * L_) ** 0.6)
     def rumble(t0, d=2.0, amp=0.3):
         z = np.convolve(rng.standard_normal(int(d * SR)), np.ones(300) / 300, 'same') * 8; put(fx, t0, amp * z * np.sin(np.pi * np.linspace(0, 1, len(z))))
-    boom(0.3, 1.0); boom(w('h1', 'UK') - 0.15, 0.7); boom(w('h1', 'who') - 0.1, 0.8)
-    whoosh(bt('h2')['start'] - 0.3); boom(w('h2', 'thirty') + 0.2, 0.9); whoosh(w('h2', 'But') - 0.45, 0.3); boom(w('h2', 'twice') - 0.1, 0.7)
-    for k in ('h3c', 'h3j', 'title'): whoosh(bt(k)['start'] - 0.35)
+    boom(0.0, 1.0); rumble(0.0, 1.4, 0.35); whoosh(bt('h2')['start'] - 0.3, 0.35, 0.35); boom(w('h2', 'cloud') - 0.05, 0.8)
+    whoosh(bt('h3')['start'] - 0.3, 0.3); t0_ = w('h3', 'fits') - 0.1; t1_ = w('h3', 'thirty', end=True) + 0.2
+    for k_ in range(31): pop(t0_ + (k_ + 1) / 31 * (t1_ - t0_), 0.09, 600 + 25 * k_)
+    boom(w('h3', 'size') - 0.1, 1.0); boom(w('h3', 'everything') - 0.1, 0.8)
+    for k in ('title',): whoosh(bt(k)['start'] - 0.35)
     for wd in ('Eight', 'winner', 'geography'): boom(w('title', wd), 0.7)
     horn(w('title', 'geography'), 0.09)
     for i in RD:
