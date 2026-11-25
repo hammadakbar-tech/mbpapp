@@ -1,6 +1,6 @@
 # Countryballs: Australia vs Greece, THE REMATCH
 
-**File:** `australia-vs-greece-rematch.mp4` (1080×1920, 1:16, AI voices)
+**File:** `australia-vs-greece-rematch.mp4` (1080×1920, 1:17, AI voices)
 **Cover:** `cover.png`
 
 **Why it exists:** viewers called the first episode's tiebreaker ("who has more Greeks?") unfair, since Greece can't lose it. This answers them directly: the complaints are the hook, then three fair rounds decide it. Shorter and punchier than the main episodes, so it works as a follow-up.
@@ -18,7 +18,7 @@
 | 0:37 | Round 3: World Heritage | 21 sites vs 21 sites (Greece just added Mount Olympus) → **TIE** |
 | 0:48 | Sudden death: happiness | "Greeks know how to enjoy life!" (Opa!) vs World Happiness Report 2026: #15 vs #85 → **Australia** |
 | 1:00 | Ending | Greece: "Fine. One win each. A decider next time?" Australia: "You're on, mate!" |
-| 1:07 | CTA | "The series is one all. What should the decider be? Comment the topic, and follow for part three." |
+| 1:07 | CTA | "The series is one all. What should the decider be? Comment the topic, and subscribe for part three!" A hand clicks a red SUBSCRIBE button, which flips to SUBSCRIBED ✓ with the bell ringing |
 
 The CTA hands the next topic to the audience, which turns the complaints into engagement and gives you part 3.
 

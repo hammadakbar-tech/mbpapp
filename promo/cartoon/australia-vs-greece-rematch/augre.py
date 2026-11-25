@@ -40,7 +40,7 @@ LINES = [
     ('r4b', 'Australia', "Maybe. But the World Happiness Report ranks me fifteenth. You're eighty-fifth."),
     ('e1', 'Greece', "Fine. One win each. A decider next time?"),
     ('e2', 'Australia', "You're on, mate!"),
-    ('cta', None, "The series is one all. What should the decider be? Comment the topic, and follow for part three.")]
+    ('cta', None, "The series is one all. What should the decider be? Comment the topic, and subscribe for part three!")]
 SPK = {k: s for k, s, _ in LINES}
 RD = {1: ('EUROVISION', 'U', ('r1b', 'five')), 2: ('COASTLINE', 'A', ('r2b', 'islands')), 3: ('WORLD HERITAGE', 'T', ('r3b', 'Olympus')), 4: ('HAPPINESS', 'A', ('r4b', 'eighty'))}
 NR = 4
@@ -52,7 +52,7 @@ SHOTS = {
 C.BEATS = [(k, s, None, None, None, None, None) for k, _, s in LINES]; C.HOOK = ('h1', 'h2')
 C.SAY = {None: {}}
 C.HOT = ('australia', 'greece', 'unfair', 'rematch', 'tiebreaker', 'greek', 'comment', 'decider', 'fair', 'three', 'sudden', 'death')
-C.TAIL_OVERRIDE = {'h1': 0.2, 'h2': 0.35, 'title': 0.6, 'c4': 0.3, 'e2': 0.6, 'cta': 2.4, **{f'c{i}': 0.15 for i in range(1, 4)},
+C.TAIL_OVERRIDE = {'h1': 0.2, 'h2': 0.35, 'title': 0.6, 'c4': 0.3, 'e2': 0.6, 'cta': 3.2, **{f'c{i}': 0.15 for i in range(1, 4)},
                    **{k: 0.3 for k, s, _ in LINES if s}, **{RD[i][2][0]: 1.1 for i in RD}, 'h3c': 0.25, 'h3j': 0.2}
 bt, w = C.bt, C.w
 VOICE_OF = {C.say(k, s): (VOICE[sp] if sp else NARR) for k, sp, s in LINES}
@@ -415,6 +415,29 @@ def verdict(cr, t, i):
     cr.save(); cr.translate(x, 1450); cr.rotate(-0.05 if win == 'A' else 0.05); cr.scale(s, s); wd = tw(cr, txt, 72)
     rrect(cr, -wd / 2 - 44, -84, wd + 88, 120, 24); cr.set_source_rgb(*col); cr.fill_preserve(); cr.set_source_rgb(1, 1, 1); cr.set_line_width(6); cr.stroke(); ptext(cr, txt, 0, 6, 72, INK, 1, sw=0, shadow=False); cr.restore()
 # ---------- ending ----------
+def subscribe_button(cr, t, t0, x, y):
+    """A subscribe button that a hand pointer clicks: it flips to SUBSCRIBED and the bell rings."""
+    tc = t0 + 1.3; clicked = t >= tc; k = pop_k(t, t0, 0.3)
+    press = 1 - 0.12 * math.sin(math.pi * clamp((t - tc + 0.08) / 0.16)) if abs(t - tc) < 0.1 else 1.0
+    pulse = 1 + (0.04 * math.sin(t * 7) if not clicked else 0)
+    cr.save(); cr.translate(x, y); cr.scale(k * press * pulse, k * press * pulse)
+    txt = 'SUBSCRIBED' if clicked else 'SUBSCRIBE'; tw_ = tw(cr, txt, 60); bw = tw_ + (150 if clicked else 110); bx = -60
+    rrect(cr, bx - bw / 2, -66, bw, 116, 58); cr.set_source_rgb(*((0.32, 0.32, 0.36) if clicked else (0.9, 0.08, 0.12))); cr.fill()
+    if clicked:
+        cx_ = bx - tw_ / 2 - 30; cr.new_path(); cr.move_to(cx_ - 20, -12); cr.line_to(cx_ - 4, 6); cr.line_to(cx_ + 22, -26); cr.set_source_rgb(1, 1, 1); cr.set_line_width(9); cr.set_line_cap(cairo.LINE_CAP_ROUND); cr.stroke()
+        ptext(cr, txt, bx + 20, 10, 60, WHITE, 1, sw=0, shadow=False)
+    else: ptext(cr, txt, bx, 10, 60, WHITE, 1, sw=0, shadow=False)
+    cr.restore()
+    ring = 0.5 * math.sin((t - tc) * 30) * math.exp(-(t - tc) * 3) if clicked else 0
+    cr.new_path(); cr.arc(x + 230, y - 8, 58 * k, 0, 2 * math.pi); cr.set_source_rgba(1, 1, 1, 0.95); cr.fill()
+    emoji(cr, '🔔', x + 230, y - 8, 76 * k, 1, rot=ring)
+    if clicked:
+        for j in range(10):
+            a = j / 10 * 2 * math.pi; r = 80 + 300 * ease_out(prog(t, tc, tc + 0.6)); f = 1 - prog(t, tc, tc + 0.7)
+            if f > 0: cr.new_path(); cr.arc(x + r * math.cos(a), y + r * math.sin(a) * 0.6, 10, 0, 2 * math.pi); cr.set_source_rgba(*(GOLD[:3] if j % 2 else (1, 1, 1)), f); cr.fill()
+    if t < tc + 0.5:
+        hx = lerp(x + 420, x - 20, ease_out(prog(t, t0 + 0.2, tc))); hy = lerp(y + 300, y + 60, ease_out(prog(t, t0 + 0.2, tc)))
+        emoji(cr, '👆', hx, hy, 120, clamp((tc + 0.5 - t) * 4))
 def draw_end(cr, t):
     e1, e2, c = bt('e1'), bt('e2'), bt('cta')
     if t < e2['start']:
@@ -432,10 +455,8 @@ def draw_end(cr, t):
     if t >= tc: kk = pop_k(t, tc); cr.save(); cr.translate(540, 470); cr.scale(kk, kk); ptext(cr, 'COMMENT THE DECIDER', 0, 0, 80, WHITE, 1, sw=11); cr.restore()
     tq = w('cta', 'What')
     if t >= tq: kk = pop_k(t, tq); cr.save(); cr.translate(540, 620); cr.scale(kk, kk); ptext(cr, 'WHAT SHOULD PART 3 BE?', 0, 0, 62, GOLD, 1, sw=9); cr.restore()
-    tf = w('cta', 'follow')
-    if t >= tf:
-        kk = pop_k(t, tf) * (1 + 0.04 * math.sin(t * 6)); cr.save(); cr.translate(540, 1620); cr.scale(kk, kk); txt = 'FOLLOW FOR PART 3'; wd = tw(cr, txt, 50)
-        rrect(cr, -wd / 2 - 50, -66, wd + 100, 104, 52); cr.set_source_rgba(*CRIMSON[:3], 1); cr.fill(); ptext(cr, txt, 0, 4, 50, WHITE, 1, sw=0, shadow=False); cr.restore()
+    ts_ = w('cta', 'subscribe') - 0.1
+    if t >= ts_: subscribe_button(cr, t, ts_, 540, 1620)
 
 def render_frame(cr, t):
     b = next((x for x in C.TL['beats'] if x['start'] <= t < x['end']), C.TL['beats'][-1]); key = b['key']
@@ -499,6 +520,7 @@ def make_audio(T, path):
             for s0, sh in shot_list(k)[1:]: whoosh(s0 - 0.2, 0.16, 0.22)
     boom(at('c4', 'Sudden') - 0.1, 0.9); rumble(at('c4', 'happiness'), 1.2, 0.15)
     boom(bt('e1')['start'], 0.6); boom(bt('cta')['start'], 0.8); cheer(bt('cta')['start'], 0.1, 1.6)
+    tsc = w('cta', 'subscribe') - 0.1 + 1.3; pop(tsc, 0.18, 1800); bell(tsc + 0.05, 0.16, 1568); bell(tsc + 0.25, 0.12, 2093); cheer(tsc + 0.1, 0.1, 1.4)
     v = np.zeros(n); tt = np.arange(n) / SR
     for s0, a in T['clips']: put(v, s0, a / max(1e-6, np.abs(a).max()) * 0.9)
     env = np.convolve(np.abs(v), np.ones(4800) / 4800, mode='same'); duck = np.convolve(1 - 0.55 * np.clip(env / 0.03, 0, 1), np.ones(9600) / 9600, mode='same')
