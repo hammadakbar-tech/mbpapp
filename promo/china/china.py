@@ -902,7 +902,9 @@ def draw_captions(cr, t, y=1660):
         size = 66; face(cr, size); space = cr.text_extents(' ').x_advance
         cur = max([j for j, x in enumerate(g) if x[0] <= t + 0.02] or [0])
         widths = [cr.text_extents(u).x_advance * (1.12 if j == cur else 1.0) for j, u in enumerate(ups)]
-        total = sum(widths) + space * (len(ups) - 1); sc = min(1.0, 980 / total)
+        total = sum(widths) + space * (len(ups) - 1)
+        if total <= 0: return
+        sc = min(1.0, 980 / total)
         cr.save(); cr.translate(540, y); cr.scale(sc, sc); x = -total / 2
         for j, (u, wd) in enumerate(zip(ups, widths)):
             cr.save(); cr.translate(x + wd / 2, 0)
