@@ -74,7 +74,7 @@ countryballs, australia vs the world, countryballs full season, countryballs com
 
 | Setting | Choose | Why |
 |---|---|---|
-| Thumbnail | `thumbnail.png` (1280×720) | Big Australia ball surrounded by rivals, "FULL SEASON 1 · WHO WON?" |
+| Thumbnail | Use **Test & compare** with the 3 thumbnails in `thumbnails/` (see section 11) | YouTube picks the winner by watch time |
 | Playlist | New: **Australia vs the World (Countryballs)**. Also add all the Australia Shorts to it | Playlists add session watch time |
 | Audience | **No, it's not made for kids** | "Made for kids" turns off comments, notifications and personalised ads |
 | Age restriction | No | |
@@ -154,6 +154,20 @@ Can you guess Australia's final record before the end? 👀
 [link]
 ```
 Add a **poll**: "Who should Australia face first in Season 2?" with the options 🇺🇸 USA rematch / 🇬🇷 Greece decider / 🇳🇿 New Zealand / 🇮🇳 India.
+
+---
+
+## 11. Thumbnail A/B test (YouTube Studio → *Test & compare*)
+
+Upload all three in **Test & compare**. YouTube splits impressions and picks the winner by **watch time share**, not just clicks, which is exactly the metric for watch hours. Let it run until it reports a result (usually 3–14 days).
+
+| File | Hook | Why it might win |
+|---|---|---|
+| `thumbnails/thumb-A-ring.png` | **The Ring:** Australia surrounded by 11 rivals, "FULL SEASON 1 · WHO WON?" | Clear and on-brand; says "compilation" instantly |
+| `thumbnails/thumb-B-1vs11.png` | **1 vs 11:** huge Australia alone against a wall of 11 rival balls | Underdog face-off; strong contrast reads well at tiny mobile sizes |
+| `thumbnails/thumb-C-6ties.png` | **6 TIES?!:** a shocked Australia next to a season scoreboard with stamped TIEs and hidden results | Curiosity gap: people click to find out the "?" results. It matches the pinned comment |
+
+Pair them with the titles: A works best with the primary title, B with "Australia vs 11 Countries: Who Won?", C with "Can Australia Beat The World?".
 
 ---
 
