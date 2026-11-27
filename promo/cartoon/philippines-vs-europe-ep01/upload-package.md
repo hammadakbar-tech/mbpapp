@@ -120,3 +120,10 @@ Most figures are official statistics. These are rounded or approximate:
 - Filipinos abroad (~10M).
 
 Italy's 62 UNESCO sites are per Guinness World Records (2026). Nazaré's 26.2 m wave is the Guinness record (Sebastian Steudtner, 2020).
+
+## Trailer Short cover
+
+- **File:** `trailer-short/cover-9x16.png` (1080×1920). It shows "PHILIPPINES vs EUROPE", a shocked Philippines ringed by 10 European balls, W ? / L ? boxes and "EPISODE 1".
+- **YouTube:** use *Upload image* if your upload screen offers it. Otherwise pick a frame from the end card (0:33–0:39).
+- **TikTok:** Edit cover → Upload.
+- **Facebook Reels:** Edit → Cover → Upload image.
