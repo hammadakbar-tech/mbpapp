@@ -51,3 +51,10 @@ Australia fought 11 countries… did it beat the world? 🦘🌏 Watch the full 
 Then comment the link to the Facebook upload of the full season and pin it.
 
 **When:** post it the same evening you post community post #2 (the poll), at around 7 pm Sydney time.
+
+## Cover
+
+- **`cover-9x16.png`:** "AUSTRALIA vs THE WORLD", a shocked Australia ringed by 10 rivals, W ? / L ? / T ? boxes, and "FULL SEASON 1".
+- **YouTube Shorts:** if your upload screen has *Upload image* under Thumbnail, use the cover. If it only lets you pick a frame, choose one from the **end card (around 0:24–0:27)**; it has the same "DID AUSTRALIA BEAT THE WORLD? W ? L ? T ?" design.
+- **TikTok:** Edit cover → Upload → `cover-9x16.png`.
+- **Facebook Reels:** Edit → Cover → Upload image.
