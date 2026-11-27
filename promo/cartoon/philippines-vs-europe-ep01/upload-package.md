@@ -51,7 +51,10 @@ Facts are checked against official sources (CIA World Factbook, UN, IMF, UNESCO,
 countryballs, philippines vs europe, philippines countryball, philippines vs spain, philippines vs italy, philippines vs france, philippines vs germany, philippines vs uk, philippines vs greece, pinoy, filipino, country comparison, geography facts, geography war, polandball, geoball wars
 ```
 
-**Thumbnails** (*Test & compare*): `thumbnails/thumb-A-1vs10.png` (Philippines vs a wall of 10 rivals, "EPISODE 1") and `thumbnails/thumb-B-canitwin.png` ("CAN THE PHILIPPINES BEAT EUROPE? · 10 COUNTRIES · 1 BY 1").
+**Thumbnails** (*Test & compare*, all 3):
+- `thumbnails/thumb-A-1vs10.png`: face-off, the Philippines vs a wall of 10 rivals, "EPISODE 1"
+- `thumbnails/thumb-B-canitwin.png`: question, "CAN THE PHILIPPINES BEAT EUROPE? · 10 COUNTRIES · 1 BY 1"
+- `thumbnails/thumb-C-lost-to-spain.png`: curiosity, a shocked Philippines next to a Europe Tour board with only "vs SPAIN: L" shown, "LOST TO SPAIN?!"
 
 **Settings:** not made for kids · category Education · altered content No (animated cartoon) · location Philippines · new playlist **"Philippines vs Europe"** · captions on.
 
