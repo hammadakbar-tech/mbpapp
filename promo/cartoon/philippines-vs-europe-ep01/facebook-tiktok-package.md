@@ -89,7 +89,7 @@ Philippines vs Europe: 10 Countries, 1 by 1 (Ep 1)
 **Hashtags** (5 total, already in the caption): `#countryballs #philippines #pinoy #geography #fyp`
 Swap `#fyp` for `#learnontiktok` if you want educational discovery instead.
 
-**Cover:** Edit cover → **Upload** → `trailer-short/cover-9x16.png` ("PHILIPPINES vs EUROPE · EPISODE 1"). Or choose the frame at **0:12** (the "MATCH 1 · vs SPAIN" card).
+**Cover:** Edit cover → **Upload** → `thumbnails/tiktok-cover-full-episode-9x16.png` ("PHILIPPINES vs EUROPE · FULL EPISODE · 10 MIN"). Or choose the frame at **0:12** (the "MATCH 1 · vs SPAIN" card).
 
 **Settings:**
 - Who can watch: Everyone
