@@ -1,6 +1,6 @@
-# Countryballs: Tag Team War 2, Team Pacific vs Team Ancient
+# Countryballs: Australia + Philippines vs Greece + Japan (Team Pacific vs Team Ancient)
 
-**File:** `tag-team-war-2.mp4` (9:16, **2:48**, a **Short**: under 3 minutes)
+**File:** `australia-philippines-vs-greece-japan.mp4` (9:16, **2:48**, a **Short**: under 3 minutes)
 **Cover:** `cover-9x16.png`
 
 **Team Pacific** (🇦🇺 Australia + 🇵🇭 Philippines) vs **Team Ancient** (🇬🇷 Greece + 🇯🇵 Japan). In each round, all four countries speak and their numbers add up into team totals. It ends **4–4**, viewers pick the tiebreaker, then the subscribe button gets clicked.
@@ -19,7 +19,7 @@
 ## YouTube Shorts
 **Title**
 ```
-Australia + Philippines vs Greece + Japan ⚔️ Tag Team War 2 #countryballs
+Australia + Philippines vs Greece + Japan ⚔️ Who Wins? #countryballs
 ```
 **Description**
 ```
@@ -28,7 +28,7 @@ Team Pacific 🇦🇺🇵🇭 vs Team Ancient 🇬🇷🇯🇵: 8 rounds, team t
 ```
 **Tags**
 ```
-countryballs, tag team war, australia philippines vs greece japan, australia vs japan, philippines vs greece, team pacific, countryball shorts, country comparison, geography facts, polandball, geoball wars
+countryballs, team pacific vs team ancient, australia philippines vs greece japan, australia vs japan, philippines vs greece, team pacific, countryball shorts, country comparison, geography facts, polandball, geoball wars
 ```
 **Pinned comment**
 ```

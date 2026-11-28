@@ -1,4 +1,4 @@
-# GeoBall Wars: Tag Team War 2. Team Pacific (Australia + Philippines) vs Team Ancient (Greece + Japan), 9:16, 3+ min.
+# GeoBall Wars: Team Pacific vs Team Ancient. Team Pacific (Australia + Philippines) vs Team Ancient (Greece + Japan), 9:16, 3+ min.
 # Every ball line is cut into shots (close-up, low angle, over-the-shoulder, two-shot, reaction) and cuts to a
 # full-screen visual of whatever is being talked about (islands, volcanoes, reefs, Christmas in September...).
 # Usage: python3 phid.py <data_dir> <out.mp4> [--preview t1,t2,...]
@@ -56,7 +56,7 @@ LINES = [('h1', 'Philippines', "Australia! Let's team up!"),
          ('h2', 'Australia', "Too right, mate! Against who?"),
          ('h3', 'Greece', "Against the oldest civilizations on Earth."),
          ('h4', 'Japan', "Greece and Japan. Ancient, and legendary."),
-         ('title', None, "Team Pacific versus Team Ancient. Eight rounds. This is Tag Team War two.")]
+         ('title', None, "Team Pacific versus Team Ancient. Eight rounds. Only one team wins!")]
 RD = {}
 for i, (ttl, ic, win, lines, vw, kind, vals, unit) in enumerate(ROUNDS, 1):
     LINES.append((f'c{i}', None, f"{'Final round' if i == NR else 'Round ' + NUMW[i]}: {ttl.lower()}."))
@@ -380,8 +380,8 @@ def draw_title(cr, t):
     tv = w('title', 'versus')
     if t >= tv: k = pop_k(t, tv, 0.3); cr.save(); cr.translate(540, 650); cr.scale(k, k); cr.new_path(); cr.arc(0, 0, 80, 0, 2 * math.pi); cr.set_source_rgb(*GOLD[:3]); cr.fill(); ptext(cr, 'VS', 0, 30, 90, INK, 1, sw=0, shadow=False); cr.restore()
     slam(cr, 'TEAM ANCIENT', 540, 820, 120, TB_C, t, w('title', 'Team', 1))
-    tg = w('title', 'Tag')
-    if t >= tg: sx, sy = shake(t, tg, 14); cr.save(); cr.translate(sx, sy); slam(cr, 'TAG TEAM WAR 2', 540, 1050, 110, WHITE, t, tg); cr.restore()
+    tg = w('title', 'Eight')
+    if t >= tg: sx, sy = shake(t, tg, 14); cr.save(); cr.translate(sx, sy); slam(cr, '8 ROUNDS', 540, 1050, 110, WHITE, t, tg); cr.restore()
     streaks(cr, 1 - ease_out(prog(t, b['start'], b['start'] + 0.22)))
 def draw_end(cr, t):
     e1, e2, c = bt('e1'), bt('e2'), bt('cta')
@@ -482,8 +482,8 @@ def make_audio(T, path):
     boom(0.0, 1.0)
     for k_ in ('h2', 'h3', 'h4'): whoosh(bt(k_)['start'] - 0.25, 0.3, 0.3); boom(bt(k_)['start'] + 0.05, 0.6)
     whoosh(bt('title')['start'] - 0.35)
-    for wd, n_ in (('Team', 0), ('versus', 0), ('Team', 1), ('Tag', 0)): boom(w('title', wd, n_), 0.7)
-    horn(w('title', 'Tag'), 0.09)
+    for wd, n_ in (('Team', 0), ('versus', 0), ('Team', 1), ('Eight', 0)): boom(w('title', wd, n_), 0.7)
+    horn(w('title', 'Eight'), 0.09)
     for i in RD:
         b = bt(f'c{i}'); whoosh(b['start'] - 0.35); boom(b['start'] + 0.03, 0.7); bell(b['start'] + 0.03)
         tv = tv_of(i); boom(tv, 0.85); horn(tv, 0.08); bell(tv, 0.08, 1568 if RD[i][1] == 'A' else 1319); cheer(tv + 0.1); pop(tv + 0.6, 0.12, 500)

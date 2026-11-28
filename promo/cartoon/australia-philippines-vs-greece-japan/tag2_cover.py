@@ -1,4 +1,4 @@
-# 9:16 cover for "Tag Team War 2": Team Pacific (Australia + Philippines) vs Team Ancient (Greece + Japan).
+# 9:16 cover for Team Pacific vs Team Ancient: Team Pacific (Australia + Philippines) vs Team Ancient (Greece + Japan).
 import sys, math, os, cairo
 import warballs as B
 from warballs import ball
@@ -26,6 +26,6 @@ ball(cr, 'au', 330, 560, 190, 'angry', 0, 0.4); ball(cr, 'ph', 750, 560, 190, 'a
 cr.new_path(); cr.arc(540, 960, 110, 0, 2 * math.pi); cr.set_source_rgb(0.05, 0.05, 0.12); cr.fill(); cr.set_source_rgb(1, 1, 1); cr.set_line_width(8); cr.stroke(); outlined(cr, 'VS', 540, 1000, 110, TA, sw=18)
 ball(cr, 'gr', 330, 1360, 190, 'angry', 0, 0.4); ball(cr, 'jp', 750, 1360, 190, 'angry', 0, -0.4)
 outlined(cr, 'TEAM ANCIENT', 540, 1680, 120, (1, 1, 1), sw=22, rot=-0.03)
-cr.save(); cr.translate(540, 1820); cr.rotate(-0.03); rrect(cr, -400, -70, 800, 124, 30); cr.set_source_rgb(*RED); cr.fill_preserve(); cr.set_source_rgb(1, 1, 1); cr.set_line_width(7); cr.stroke(); outlined(cr, 'TAG TEAM WAR 2', 0, 32, 84, (1, 1, 1), sw=14); cr.restore()
+cr.save(); cr.translate(540, 1820); cr.rotate(-0.03); rrect(cr, -400, -70, 800, 124, 30); cr.set_source_rgb(*RED); cr.fill_preserve(); cr.set_source_rgb(1, 1, 1); cr.set_line_width(7); cr.stroke(); outlined(cr, 'WHO WINS?', 0, 32, 84, (1, 1, 1), sw=14); cr.restore()
 emoji(cr, '⚡', 160, 960, 130, 1, rot=-0.3); emoji(cr, '⚡', 920, 960, 130, 1, rot=0.3)
 s.write_to_png(out); print('ok')
